@@ -1,0 +1,119 @@
+<div class="product-list">
+    <div class="product-list__container">
+        <div class="product-list__header">
+            <h3 class="product-list__title">
+                {{ section.settings.title }}
+            </h3>
+            <p class="product-list__desc">
+                {{ section.settings.description }}
+            </p>
+        </div>
+        <div class="product-list__slider" data-product-slider={{ section.settings.enable_slider }}>
+            <div class="product-list__body">
+                {%- for block in section.blocks -%}
+                    {% assign product = block.settings.product %}
+                    {%- if product != blank -%}
+                        <div class="product-list__card-product product-card">
+                            <a href="{{ product.url }}" class="product-card__link">
+                                <span class="product-card__extra_price">$0.33<br><small>/day</small></span>
+                                <div class="product-card__image">
+                                    {{ product.featured_image | image_url: width: 270 | image_tag: loading: 'lazy' }}
+                                    <ul class="product-card__tags product-tags">
+                                        {%- for tag in product.tags -%}
+                                            {%- assign index = forloop.index0 -%}
+                                        <li class="product-tags__item">
+                                            <span style="background-color: green;">
+                                                {% if index == 0 %}
+                                                    {% comment %}"outer"{{ index }}{% endcomment %}
+                                                {% endif %}
+                                            </span>
+                                                <a class="product-tags__link" href="/collections/all/{{ tag | handleize }}">
+                                                    {%- assign icons = product.metafields.custom.tags_icons.value -%}
+                                                    {%- for icon in icons limit: 1 -%}
+                                                        {% if index == 0 %}
+                                                            {% comment %}"outer"{{ index }}{% endcomment %}
+                                                            {{ icon | image_url: width: 20 | image_tag: loading: 'lazy', class: 'product-tags__icon' }}
+                                                            {{ tag }}
+                                                        {% endif %}
+                                                        {% comment %}<span style="background-color: orange;"> "inner"{{ index }}</span>{% endcomment %}
+                                                    {%- endfor %}
+
+                                                    {%- for icon in icons offset: 1 -%}
+                                                        {% if index == 1 %}
+                                                            {{ icon | image_url: width: 20 | image_tag: loading: 'lazy', class: 'product-tags__icon' }}
+                                                            {{ tag }}
+                                                        {% endif %}
+                                                    {%- endfor %}
+                                                </a>
+                                            </li>
+                                        {%- endfor %}
+                                    </ul>
+                                </div>
+                                <div class="product-card__name">{{ product.title }}</div>
+                                <div class="product-card__price">{{ product.price | money_with_currency }}</div>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+            <div class="swiper-pagination"></div>
+            <button class="product-list__button">{{ section.settings.button_text }}</button>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Products list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Have you had your daily dose of vit today?",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Whether you need a daily pick-me up or a little sleep support, our products are developed with the end goal in mind. Optimally-dosed, highly bioavailable formulas means you can see and feel results that set you on a path to better health.",
+      "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "default": false,
+      "label": "Enable slider on mobile devices",
+      "info": "Slider will work starting from 768px screen resolution"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "See All Products",
+      "label": "Button text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products list",
+      "settings": {
+      }
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"]
+  }
+}
+{% endschema %}
