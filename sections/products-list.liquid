@@ -1,3 +1,29 @@
+{% style %}
+    {%- for block in section.blocks -%}
+    {% assign product = block.settings.product %}
+        #product-{{ block.id }}.product-card:hover .product-card__image {
+            background-color: {{ product.metafields.custom.background_color }};
+        }
+
+        #product-{{ block.id }}.product-card .product-card__extra_price,
+        #product-{{ block.id }}.product-card .product-card__extra_price small {
+            color: {{ product.metafields.custom.text_color }};
+        }
+
+        #product-{{ block.id }}.product-card:hover .product-tags__link {
+            border-color: {{ product.metafields.custom.border_color }};
+        }
+
+        #product-{{ block.id }}.product-card:hover .product-tags__link {
+            color: {{ product.metafields.custom.tag_text_color }};
+        }
+
+        #product-{{ block.id }}.product-card:hover .product-tags__link .product-tags__icon {
+            filter: brightness({{ product.metafields.custom.icon_color_as_a_number }});
+        }
+    {%- endfor -%}
+{% endstyle %}
+
 <div class="product-list">
     <div class="product-list__container">
         <div class="product-list__header">
@@ -13,7 +39,7 @@
                 {%- for block in section.blocks -%}
                     {% assign product = block.settings.product %}
                     {%- if product != blank -%}
-                        <div class="product-list__card-product product-card">
+                        <div id="product-{{ block.id }}" class="product-list__card-product product-card">
                             <a href="{{ product.url }}" class="product-card__link">
                                 <span class="product-card__extra_price">$0.33<br><small>/day</small></span>
                                 <div class="product-card__image">
@@ -57,7 +83,7 @@
                 {%- endfor -%}
             </div>
             <div class="swiper-pagination"></div>
-            <button class="product-list__button">{{ section.settings.button_text }}</button>
+            <a href="{{ routes.collections_url | append: "/all" }}" class="product-list__button">{{ section.settings.button_text }}</a>
         </div>
     </div>
 </div>

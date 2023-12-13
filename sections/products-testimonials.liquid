@@ -5,23 +5,29 @@
                 {{ sections.settings.title }}
             </h3>
         </div>
-        <div class="products-testimonials__slider" data-product-slider={{ section.settings.enable_slider }}>
-            <div class="products-testimonials__row swiper-wrapper">
+        <div class="products-testimonials__slider" data-testimonials-slider={{ section.settings.enable_slider }}>
+            <div class="products-testimonials__row">
                 {%- for block in section.blocks -%}
-                    <div class="products-testimonials__column swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="products-testimonials__column" {{ block.shopify_attributes }}>
                         <div class="products-testimonials__wrapper">
                             {%- if block.settings.card_image != blank -%}
                                 <div class="testimonial-card__image">
                                     {{ block.settings.card_image | image_url: width: 140 | image_tag: loading: 'lazy' }}
                                 </div>
                             {%- endif -%}
-                            {%- if block.settings.card_icon != blank -%}
-                                <div class="testimonial-card__rating">
-                                    {% for i in (0..4) %}
-                                        {{ block.settings.card_icon | image_url: width: 30 | image_tag: loading: 'lazy' }}
-                                    {% endfor %}
-                                </div>
-                            {%- endif -%}
+                            <div class="testimonial-card__rating">
+                                {% assign default_icon = 'icon-star.svg' | file_url %}
+                                {% assign stroke_icon = 'stroke-star-icon.svg' | file_url %}
+
+                                {% for i in (1..5) %}
+                                    {% if i <= block.settings.card_icon_count %}
+                                        <img src="{{ default_icon }}" width="30" height="28" alt="" loading="lazy">
+                                    {% else %}
+                                        {% comment %}{{ block.settings.card_icon | image_url: width: 30 | image_tag: loading: 'lazy' }}{% endcomment %}
+                                        <img src="{{ stroke_icon }}" width="30" height="28" alt="" loading="lazy">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                             {%- if block.settings.card_title != blank -%}
                                 <h3 class="testimonial-card__title">
                                     {{ block.settings.card_title }}
@@ -54,7 +60,7 @@
         </div>
         <div class="testimonial-card__button testimonial-card__button_next">{% render 'icon-caret' %}</div>
         <div class="testimonial-card__button testimonial-card__button_prev">{% render 'icon-caret' %}</div>
-        <div class="swiper-pagination"></div>
+        <div class="testimonial__swiper-pagination"></div>
     </div>
 </div>
 
@@ -67,6 +73,13 @@
       "id": "title",
       "default": "Why People Love Us",
       "label": "Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "default": false,
+      "label": "Enable slider on mobile devices",
+      "info": "Slider will work starting from 768px screen resolution"
     }
   ],
   "blocks": [
@@ -80,9 +93,12 @@
           "label": "Card image"
         },
         {
-          "type": "image_picker",
-          "id": "card_icon",
-          "label": "Card icon"
+          "type": "range",
+          "label": "Number of Stars",
+          "id": "card_icon_count",
+          "min": 1,
+          "max": 5,
+          "default": 5
         },
         {
           "type": "text",
