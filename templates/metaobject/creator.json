@@ -1,7 +1,16 @@
 {
   "sections": {
+    "dab80fe9-8706-4c9a-8afe-8b2198b9ce0a": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<h1>{{ metaobject.name }}<\/h1>\n{{ metaobject.photo | metafield_tag }}\n<p>{{metaobject.bio }}<\/p>\n\nCreator of...\n<ul>\n{% for product in metaobject.creator_of.value %}\n<li>{{ product.title }}<\/li>\n{% endfor %}\n<\/ul>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
   },
   "order": [
-
+    "dab80fe9-8706-4c9a-8afe-8b2198b9ce0a"
   ]
 }
