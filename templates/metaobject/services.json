@@ -46,9 +46,20 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "762961a9-c7cb-4e5b-928e-5980de7b4b80": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "8f07654e-87fa-4d99-b5d6-95672d7ddea8"
+    "8f07654e-87fa-4d99-b5d6-95672d7ddea8",
+    "762961a9-c7cb-4e5b-928e-5980de7b4b80"
   ]
 }
