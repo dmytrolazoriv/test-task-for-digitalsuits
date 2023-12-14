@@ -1,7 +1,54 @@
 {
   "sections": {
+    "8f07654e-87fa-4d99-b5d6-95672d7ddea8": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ metaobject.name.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobject.description | metafield_tag }}<\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-heading-1",
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-text-1",
+        "template--21771380326706__8f07654e-87fa-4d99-b5d6-95672d7ddea8-button-1"
+      ],
+      "settings": {
+        "image": "{{ metaobject.image.value }}",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
   },
   "order": [
-
+    "8f07654e-87fa-4d99-b5d6-95672d7ddea8"
   ]
 }
