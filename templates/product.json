@@ -48,6 +48,13 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "6a2976b3-c267-45b3-97af-bbb5b7d867ea": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.estimated_shipping_date.value }}",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
@@ -58,7 +65,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "6a2976b3-c267-45b3-97af-bbb5b7d867ea"
       ],
       "settings": {
         "enable_sticky_info": true,
