@@ -6,9 +6,66 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "4ac399ae-a661-4ce1-a5fe-218e188de113": {
+      "type": "multirow",
+      "blocks": {
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-1": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-2": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-3": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-1",
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-2",
+        "template--21773005422898__4ac399ae-a661-4ce1-a5fe-218e188de113-row-3"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "4ac399ae-a661-4ce1-a5fe-218e188de113"
   ]
 }
