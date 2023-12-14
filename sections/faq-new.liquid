@@ -1,0 +1,24 @@
+<h1>{{ page.title }}</h1>
+<p>{{ page.content }}</p>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
