@@ -206,3 +206,15 @@ function handleScreenWidthChangeForTestimonials() {
 window.addEventListener("load", handleScreenWidthChangeForTestimonials);
 window.addEventListener("resize", handleScreenWidthChangeForTestimonials);
 window.addEventListener("change", handleScreenWidthChangeForTestimonials);
+
+
+// Faq section scripts
+
+const questionHeaders = document.querySelectorAll(".faq-page-question-header");
+if (questionHeaders) {
+    questionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+            header.parentElement.classList.toggle("active");
+        });
+    });
+}
