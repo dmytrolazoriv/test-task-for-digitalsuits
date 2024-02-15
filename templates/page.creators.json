@@ -2,6 +2,21 @@
   "sections": {
     "main": {
       "type": "creators",
+      "blocks": {
+        "creator_EK7aRJ": {
+          "type": "creator",
+          "settings": {
+            "name": "",
+            "bio": "",
+            "creator_of": [
+
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "creator_EK7aRJ"
+      ],
       "settings": {
       }
     }
