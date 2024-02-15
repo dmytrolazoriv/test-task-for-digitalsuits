@@ -2,22 +2,6 @@
   "sections": {
     "main": {
       "type": "creators",
-      "blocks": {
-        "creator_a8L8Wx": {
-          "type": "creator",
-          "source": "{{ page.metafields.custom.metaobject.value }}",
-          "settings": {
-            "name": "{{ page.metafields.custom.metaobject.value.name.value }}",
-            "bio": "<p>{{ page.metafields.custom.metaobject.value.gender.value }}<\/p>",
-            "creator_of": [
-
-            ]
-          }
-        }
-      },
-      "block_order": [
-        "creator_a8L8Wx"
-      ],
       "settings": {
       }
     }
